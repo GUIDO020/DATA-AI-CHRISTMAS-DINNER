@@ -9,11 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-
-<iframe width="640px" height="480px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=HGJU_kVz3kK1vQ-xkx-Kb9AqDpftIW9Nuw3hP9oJup5UOVpTNkQzRVRPSFlLVllSTjZHNkQ0VURMTy4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+<!-- ═══════════════════════════════════════════════════════════════
+     MICROSOFT FORM — incolla qui il link del modulo.
+     In Microsoft Forms: Raccogli risposte → icona </> "Incorpora" → copia
+     l'URL dentro src="..." (quello che finisce con &embed=true).
+     ═══════════════════════════════════════════════════════════════ -->
 <script>
-window.FORM_EMBED_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=HGJU_kVz3kK1vQ-xkx-Kb9AqDpftIW9Nuw3hP9oJup5UOVpTNkQzRVRPSFlLVllSTjZHNkQ0VURMTy4u&embed=true";
-window.VOTING_DEADLINE = null; // es. "2026-12-05T18:00:00+01:00"
+window.FORM_EMBED_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=HGJU_kVz3kK1vQ-xkx-Kb9AqDpftIW9Nuw3hP9oJup5UOVpTNkQzRVRPSFlLVllSTjZHNkQ0VURMTy4u&embed=true"; // es. "https://forms.office.com/Pages/ResponsePage.aspx?id=XXXX&embed=true"
+window.VOTING_DEADLINE = "2026-12-05T18:00:00+01:00"; // es. "2026-12-05T18:00:00+01:00"
 </script>
 
 <style>
@@ -488,7 +491,7 @@ function renderMap(){
 }
 function renderForm(){
   const url = String(window.FORM_EMBED_URL||"");
-  if (/^https:\/\/forms\.(office|microsoft)\.com\//i.test(url) || /^https:\/\/[a-z0-9-]+\.sharepoint\.com\//i.test(url)) {
+  if (url.includes("forms.") && url.includes("embed=true")) {
     $("#formSlot").innerHTML = `<iframe src="${esc(url)}" title="Modulo di voto" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>`;
   } else {
     $("#formSlot").innerHTML = `<div class="ph"><h3>🗳 Qui comparirà il Microsoft Form</h3>
